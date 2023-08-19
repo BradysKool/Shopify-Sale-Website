@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Website</title>
+  <link href="{% static '/css/styles.css' %}" rel="stylesheet" type="text/css">
+  <style>
+    
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Search On Sale Products</h1>
+    <h3>Brands On Site: <a href="/?brand=allbirds">Allbirds</a> <a href="/?brand=goruck">GoRuck</a><a href="/?brand=hukgear">HukGear</a><a href="/?brand=stix">Stix</a><a href="/?brand=tenthousand">Ten Thousand</a></h6>
+    <p>Last updated today at 2 am</p>
+    <form id="nameForm">
+      <input type="text" id="nameInput" placeholder="Search Product Name" />
+      <button type="submit">Search</button>
+    </form>
+    <button id="clearButton">Clear Search</button>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Product</th>
+          <th>URL</th>
+          <th>Handle</th>
+          <th>MSRP</th>
+          <th>Sale Price</th>
+          <th>Percent On Sale</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+          <tr>
+            <td>{{product.brand}}</td>
+            <td>{{product.name}}</td>
+            <td><a href={{product.url}} target="_blank" class="custom-link">{{product.url}}</a></td>
+            <td>{{product.handle}}</td>
+            <td>{{product.msrp}}</td>
+            <td>{{product.salePrice}}</td>
+            <td>{{product.percentOnSale}}%</td>
+          </tr>
+        {% endfor %}
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+    document.getElementById('nameForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      var searchInput = '';
+      var nameInput = document.getElementById('nameInput').value;
+      var queryString = '';
+
+      if (searchInput) {
+        queryString += '?brand=' + encodeURIComponent(searchInput);
+      }
+
+      if (nameInput) {
+        queryString += (queryString ? '&' : '?') + 'name=' + encodeURIComponent(nameInput);
+      }
+
+      var currentUrl = window.location.href;
+      if (currentUrl.indexOf('?') !== -1) {
+        queryString += (queryString ? '&' : '') + currentUrl.split('?')[1];
+      }
+
+      var newUrl = window.location.origin + window.location.pathname + queryString;
+      window.location.href = newUrl;
+    });
+
+    document.getElementById('clearButton').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the button from submitting the form
+
+      var currentUrl = window.location.href;
+      var baseUrl = window.location.origin + window.location.pathname;
+
+      // Redirect to the base URL without query parameters
+      window.location.href = baseUrl;
+    });
+  </script>
+  
+</body>
+</html>
+  

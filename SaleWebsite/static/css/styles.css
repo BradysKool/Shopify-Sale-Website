@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding-top: 40px;
+}
+
+.heading {
+  margin-top: 0;
+  margin-bottom: 0px;
+  font-size: 40px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  font-size: 18px; /* Increase the font size for the search bar */
+}
+
+button[type="submit"] {
+  padding: 8px 16px; /* Increase the padding for the search button */
+  font-size: 18px; /* Increase the font size for the search button */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+#clearButton {
+  padding: 8x 16px; /* Increase the padding for a larger button */
+  font-size: 18px; /* Increase the font size for a larger button */
+}
+
+.custom-link:link,
+.custom-link:visited {
+  color: blue; /* Specify your desired link color */
+}
+
+.custom-link:hover {
+  color: red; /* Specify your desired color when hovering over the link */
+}
+
+.custom-link:active,
+.custom-link:focus {
+  color: blue; /* Specify your desired color when the link is clicked or in focus */
+  outline: none; /* Remove the focus outline */
+}
