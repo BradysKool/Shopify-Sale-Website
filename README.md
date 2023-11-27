@@ -3,4 +3,4 @@ On this website that is currently live at the URL http://50.116.14.157:8000/ you
 
 You can find most of the code I worked on in SaleWebsite/SaleApp/management/commands. There are multiple scripts to get the products and then eventually store them in the Djangons SQL lite.
 
-Another big part is displaying it on the website and allowing for filtering and searching of the individual products. This was done in the 
+Another big part is displaying it on the website and allowing for filtering and searching of the individual products. This was done throughout the rest of all of the files.
